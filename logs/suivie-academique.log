@@ -239,3 +239,69 @@
 2025-12-18 12:59:19.564 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-12-18 12:59:19.593 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-12-18 12:59:19.651 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-18 15:44:34.326 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-12-18 15:44:34.582 INFO  [main] c.s.s.c.SalleTestController - Starting SalleTestController using Java 24.0.2 with PID 5496 (started by Mc-kevin in C:\Users\Mc-kevin\faux\Cours\DevAvnc\tp3\suivie_academique)
+2025-12-18 15:44:34.584 DEBUG [main] c.s.s.c.SalleTestController - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-18 15:44:34.586 INFO  [main] c.s.s.c.SalleTestController - No active profile set, falling back to 1 default profile: "default"
+2025-12-18 15:44:43.934 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name com.suivie_academique.suivie_academique.services.implementations.PersonnelDetailsService#0
+2025-12-18 15:44:46.497 DEBUG [main] c.s.s.security.JwtFilter - Filter 'jwtFilter' configured for use
+2025-12-18 15:44:46.514 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-12-18 15:44:46.516 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-12-18 15:44:46.553 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 23 ms
+2025-12-18 15:44:46.657 INFO  [main] c.s.s.c.SalleTestController - Started SalleTestController in 14.642 seconds (process running for 19.746)
+2025-12-18 15:53:48.549 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-12-18 15:53:48.758 INFO  [main] c.s.s.c.SalleTestController - Starting SalleTestController using Java 24.0.2 with PID 21152 (started by Mc-kevin in C:\Users\Mc-kevin\faux\Cours\DevAvnc\tp3\suivie_academique)
+2025-12-18 15:53:48.760 DEBUG [main] c.s.s.c.SalleTestController - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-18 15:53:48.766 INFO  [main] c.s.s.c.SalleTestController - No active profile set, falling back to 1 default profile: "default"
+2025-12-18 15:53:53.047 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-18 15:53:53.389 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 313 ms. Found 6 JPA repository interfaces.
+2025-12-18 15:53:59.364 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-18 15:53:59.677 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-12-18 15:53:59.872 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-18 15:54:00.460 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-18 15:54:00.639 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-18 15:54:02.963 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6efc9d3f
+2025-12-18 15:54:02.969 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-18 15:54:03.396 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-18 15:54:03.513 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-18 15:54:05.209 WARN  [main] org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.suivie_academique.suivie_academique.entities.Affectationid
+2025-12-18 15:54:05.210 WARN  [main] org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.suivie_academique.suivie_academique.entities.Affectationid
+2025-12-18 15:54:06.809 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-18 15:54:07.357 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-18 15:54:10.850 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-18 15:54:17.087 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name personnelDetailsService
+2025-12-18 15:54:18.594 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-18 15:54:31.994 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-12-18 15:54:38.561 DEBUG [main] c.s.s.security.JwtFilter - Filter 'jwtFilter' configured for use
+2025-12-18 15:54:38.563 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-12-18 15:54:38.564 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-12-18 15:54:38.566 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+2025-12-18 15:54:38.813 INFO  [main] c.s.s.c.SalleTestController - Started SalleTestController in 52.008 seconds (process running for 56.028)
+2025-12-18 15:54:40.265 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ➤ Entrée dans LogActionServiceImplementation.log avec arguments: [user, AVANT : delete, URL=/salle/S001 | Méthode=DELETE | IP=127.0.0.1]
+2025-12-18 15:54:40.368 DEBUG [main] org.hibernate.SQL - insert into log_action (acteur,action,date,description) values (?,?,?,?)
+2025-12-18 15:54:40.771 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ✓ Sortie de LogActionServiceImplementation.log avec résultat: null
+2025-12-18 15:54:40.796 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ➤ Entrée dans LogActionServiceImplementation.log avec arguments: [user, SUCCÈS : delete, URL=/salle/S001 | Retour=<204 NO_CONTENT No Content,[]>]
+2025-12-18 15:54:40.799 DEBUG [main] org.hibernate.SQL - insert into log_action (acteur,action,date,description) values (?,?,?,?)
+2025-12-18 15:54:40.819 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ✓ Sortie de LogActionServiceImplementation.log avec résultat: null
+2025-12-18 15:54:45.836 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ➤ Entrée dans LogActionServiceImplementation.log avec arguments: [admin, AVANT : save, URL=/salle | Méthode=POST | IP=127.0.0.1]
+2025-12-18 15:54:45.849 DEBUG [main] org.hibernate.SQL - insert into log_action (acteur,action,date,description) values (?,?,?,?)
+2025-12-18 15:54:45.871 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ✓ Sortie de LogActionServiceImplementation.log avec résultat: null
+2025-12-18 15:54:45.875 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ➤ Entrée dans LogActionServiceImplementation.log avec arguments: [admin, SUCCÈS : save, URL=/salle | Retour=<201 CREATED Created,com.suivie_academique.suivie_academique.dto.SalleDTO@2a372d63,[]>]
+2025-12-18 15:54:45.878 DEBUG [main] org.hibernate.SQL - insert into log_action (acteur,action,date,description) values (?,?,?,?)
+2025-12-18 15:54:45.895 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ✓ Sortie de LogActionServiceImplementation.log avec résultat: null
+2025-12-18 15:54:46.054 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ➤ Entrée dans LogActionServiceImplementation.log avec arguments: [user, AVANT : getAll, URL=/salle | Méthode=GET | IP=127.0.0.1]
+2025-12-18 15:54:46.058 DEBUG [main] org.hibernate.SQL - insert into log_action (acteur,action,date,description) values (?,?,?,?)
+2025-12-18 15:54:46.073 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ✓ Sortie de LogActionServiceImplementation.log avec résultat: null
+2025-12-18 15:54:46.074 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ➤ Entrée dans LogActionServiceImplementation.log avec arguments: [user, SUCCÈS : getAll, URL=/salle | Retour=<200 OK OK,[com.suivie_academique.suivie_academique.dto.SalleDTO@5a4c9b33],[]>]
+2025-12-18 15:54:46.076 DEBUG [main] org.hibernate.SQL - insert into log_action (acteur,action,date,description) values (?,?,?,?)
+2025-12-18 15:54:46.094 DEBUG [main] c.s.s.s.i.LogActionServiceImplementation - ✓ Sortie de LogActionServiceImplementation.log avec résultat: null
+2025-12-18 15:54:46.215 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-18 15:54:46.247 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-18 15:54:46.327 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
