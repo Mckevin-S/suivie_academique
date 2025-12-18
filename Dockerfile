@@ -5,7 +5,7 @@ COPY . .
 # AJOUTEZ CETTE LIGNE : Donne les droits d'exécution au wrapper Maven
 RUN chmod +x ./mvnw
 
-RUN ./mvnw clean package -DskipTests
+RUN ./mvnw clean package
 
 # Etape 2 : Executer l'application (JRE 24)
 FROM eclipse-temurin:24-jre
