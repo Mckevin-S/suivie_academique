@@ -8,6 +8,9 @@ FROM eclipse-temurin:24-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
+# AJOUTEZ CETTE LIGNE : Donne les droits d'exécution au wrapper Maven
+RUN chmod +x ./mvnw
+
 # Exposer le port par defaut de spring boot
 
 EXPOSE 8089
