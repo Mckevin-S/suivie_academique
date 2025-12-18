@@ -1,0 +1,108 @@
+2025-12-17 10:41:00.997 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-12-17 10:41:01.099 INFO  [restartedMain] c.s.s.SuivieAcademiqueApplication - Starting SuivieAcademiqueApplication using Java 24.0.2 with PID 17584 (C:\Users\Mc-kevin\faux\Cours\DevAvnc\tp3\suivie_academique\target\classes started by Mc-kevin in C:\Users\Mc-kevin\faux\Cours\DevAvnc\tp3\suivie_academique)
+2025-12-17 10:41:01.100 DEBUG [restartedMain] c.s.s.SuivieAcademiqueApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-17 10:41:01.102 INFO  [restartedMain] c.s.s.SuivieAcademiqueApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-17 10:41:01.201 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-17 10:41:01.201 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-17 10:41:03.689 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-17 10:41:03.836 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 126 ms. Found 6 JPA repository interfaces.
+2025-12-17 10:41:05.944 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 5002 (http)
+2025-12-17 10:41:05.975 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-5002"]
+2025-12-17 10:41:05.978 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-17 10:41:05.979 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-17 10:41:06.082 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-17 10:41:06.083 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4881 ms
+2025-12-17 10:41:07.120 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-17 10:41:07.237 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-12-17 10:41:07.313 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-17 10:41:07.828 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-17 10:41:07.883 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-17 10:41:09.389 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fb500d1
+2025-12-17 10:41:09.393 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-17 10:41:09.708 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-17 10:41:09.744 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-17 10:41:10.439 WARN  [restartedMain] org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.suivie_academique.suivie_academique.entities.Affectationid
+2025-12-17 10:41:10.439 WARN  [restartedMain] org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.suivie_academique.suivie_academique.entities.Affectationid
+2025-12-17 10:41:11.609 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-17 10:41:11.750 DEBUG [restartedMain] org.hibernate.SQL - create table affectation (code_cours varchar(255) not null, code_personnel varchar(255) not null, primary key (code_cours, code_personnel)) engine=InnoDB
+2025-12-17 10:41:11.927 DEBUG [restartedMain] org.hibernate.SQL - create table cours (code_cours varchar(255) not null, desc_cours varchar(255), label_cours varchar(255) not null, nb_credit_cours integer not null, nb_heure_cours integer not null, statu_salle enum ('FERMER','LIBRE','OCCUPE') not null, primary key (code_cours)) engine=InnoDB
+2025-12-17 10:41:11.990 DEBUG [restartedMain] org.hibernate.SQL - create table log_action (id bigint not null auto_increment, acteur varchar(255), action varchar(255), date datetime(6), description varchar(255), primary key (id)) engine=InnoDB
+2025-12-17 10:41:12.053 DEBUG [restartedMain] org.hibernate.SQL - create table personnel (code_personnel varchar(255) not null, desc_cours varchar(255), login_personnel varchar(255) not null, nom_personnel varchar(255) not null, phone_personnel varchar(255) not null, pwd_personnel varchar(255) not null, role_personnel enum ('ENSEIGNANT','RESPONSSABLE_DICIPLINE','RESPONSSALE_ACCADEMIQUE') not null, sexe_personnel char(1) not null, primary key (code_personnel)) engine=InnoDB
+2025-12-17 10:41:12.117 DEBUG [restartedMain] org.hibernate.SQL - create table programmation (code_programmation integer not null auto_increment, date_programmation datetime(6) not null, debut_programmation datetime(6) not null, fin_programmation datetime(6) not null, nbre_heure_programmation integer not null, statut_programmation tinyint not null check (statut_programmation between 0 and 2), code_cours varchar(255), code_personnel_prog varchar(255), code_personnel_val varchar(255), code_salle varchar(255), primary key (code_programmation)) engine=InnoDB
+2025-12-17 10:41:12.188 DEBUG [restartedMain] org.hibernate.SQL - create table salle (code_salle varchar(255) not null, contenance integer not null, desc_salle varchar(255), status_salle enum ('FERMER','LIBRE','OCCUPE') not null, primary key (code_salle)) engine=InnoDB
+2025-12-17 10:41:12.255 DEBUG [restartedMain] org.hibernate.SQL - alter table affectation add constraint FKh9ihr1xhavslkiabtetvbkxii foreign key (code_cours) references cours (code_cours)
+2025-12-17 10:41:12.443 DEBUG [restartedMain] org.hibernate.SQL - alter table affectation add constraint FKt941hwqldvsfcfwpgdx87s3yc foreign key (code_personnel) references personnel (code_personnel)
+2025-12-17 10:41:12.634 DEBUG [restartedMain] org.hibernate.SQL - alter table programmation add constraint FKl399jftpsqgmf4ds7r6t9drdb foreign key (code_cours) references cours (code_cours)
+2025-12-17 10:41:13.003 DEBUG [restartedMain] org.hibernate.SQL - alter table programmation add constraint FK4iiq8v4eqbv19udenyv8oyhla foreign key (code_personnel_prog) references personnel (code_personnel)
+2025-12-17 10:41:13.253 DEBUG [restartedMain] org.hibernate.SQL - alter table programmation add constraint FK6rx1jwh5dsv0317qf5mpjx2pm foreign key (code_personnel_val) references personnel (code_personnel)
+2025-12-17 10:41:13.478 DEBUG [restartedMain] org.hibernate.SQL - alter table programmation add constraint FKn3n8q8k12ve2vd0hefngjw3tq foreign key (code_salle) references salle (code_salle)
+2025-12-17 10:41:13.874 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-17 10:41:15.486 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-17 10:41:17.342 DEBUG [restartedMain] c.s.s.security.JwtFilter - Filter 'jwtFilter' configured for use
+2025-12-17 10:41:18.047 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name personnelDetailsService
+2025-12-17 10:41:18.769 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-17 10:41:20.075 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-12-17 10:41:21.230 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-17 10:41:21.358 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-5002"]
+2025-12-17 10:41:21.447 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 5002 (http) with context path '/'
+2025-12-17 10:41:21.489 INFO  [restartedMain] c.s.s.SuivieAcademiqueApplication - Started SuivieAcademiqueApplication in 21.617 seconds (process running for 23.254)
+2025-12-17 10:41:58.917 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-17 10:41:58.932 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-17 10:41:58.946 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-17 10:41:58.954 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-17 10:41:58.982 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-17 10:42:34.385 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-12-17 10:42:34.457 INFO  [restartedMain] c.s.s.SuivieAcademiqueApplication - Starting SuivieAcademiqueApplication using Java 24.0.2 with PID 20616 (C:\Users\Mc-kevin\faux\Cours\DevAvnc\tp3\suivie_academique\target\classes started by Mc-kevin in C:\Users\Mc-kevin\faux\Cours\DevAvnc\tp3\suivie_academique)
+2025-12-17 10:42:34.458 DEBUG [restartedMain] c.s.s.SuivieAcademiqueApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-12-17 10:42:34.459 INFO  [restartedMain] c.s.s.SuivieAcademiqueApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-17 10:42:34.543 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-17 10:42:34.545 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-17 10:42:36.422 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-17 10:42:36.549 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 114 ms. Found 6 JPA repository interfaces.
+2025-12-17 10:42:38.743 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 5002 (http)
+2025-12-17 10:42:38.788 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-5002"]
+2025-12-17 10:42:38.795 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-17 10:42:38.796 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-17 10:42:39.066 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-17 10:42:39.067 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4520 ms
+2025-12-17 10:42:39.819 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-17 10:42:39.880 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-12-17 10:42:39.928 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-17 10:42:40.305 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-17 10:42:40.342 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-17 10:42:40.908 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5fc9e77c
+2025-12-17 10:42:40.911 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-17 10:42:40.980 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-17 10:42:41.001 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-17 10:42:41.655 WARN  [restartedMain] org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.suivie_academique.suivie_academique.entities.Affectationid
+2025-12-17 10:42:41.655 WARN  [restartedMain] org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.suivie_academique.suivie_academique.entities.Affectationid
+2025-12-17 10:42:42.589 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-17 10:42:42.769 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-17 10:42:43.319 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-17 10:42:44.284 DEBUG [restartedMain] c.s.s.security.JwtFilter - Filter 'jwtFilter' configured for use
+2025-12-17 10:42:44.617 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name personnelDetailsService
+2025-12-17 10:42:45.204 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-17 10:42:46.436 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-12-17 10:42:47.664 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-17 10:42:47.787 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-5002"]
+2025-12-17 10:42:47.810 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 5002 (http) with context path '/'
+2025-12-17 10:42:47.829 INFO  [restartedMain] c.s.s.SuivieAcademiqueApplication - Started SuivieAcademiqueApplication in 14.495 seconds (process running for 15.765)
+2025-12-17 10:42:53.367 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-17 10:42:53.376 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-17 10:42:53.387 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-17 10:42:53.392 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-17 10:42:53.403 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

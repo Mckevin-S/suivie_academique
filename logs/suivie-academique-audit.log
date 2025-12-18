@@ -1,0 +1,3 @@
+2025-12-16 16:36:05.154 INFO  [http-nio-5002-exec-1] AUDIT_LOGGER - [AUDIT] User: ANONYMOUS | Action: READ | Entity: PERSONNEL | ID: ALL | Details: Entity accessed | Timestamp: 2025-12-16 16:36:05
+2025-12-16 16:40:31.244 INFO  [http-nio-5002-exec-4] AUDIT_LOGGER - [AUDIT] User: ANONYMOUS | Action: CREATE | Entity: PERSONNEL | ID: null20255641 | Details: Nom: Kevin Kamguem, Role: RESPONSSALE_ACCADEMIQUE | Timestamp: 2025-12-16 16:40:31
+2025-12-16 16:54:17.023 INFO  [http-nio-5002-exec-7] AUDIT_LOGGER - [AUDIT] User: ANONYMOUS | Action: READ | Entity: PERSONNEL | ID: ALL | Details: Entity accessed | Timestamp: 2025-12-16 16:54:17
