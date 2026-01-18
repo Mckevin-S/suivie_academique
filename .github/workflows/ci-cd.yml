@@ -23,20 +23,21 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -DskipTests
 
-      # --- PROJET 3 & 5 : ANALYSE DE SÉCURITÉ DU CODE (SCA) ---
-      # Identifie les dépendances vulnérables dans Spring Boot
-      - name: Snyk Open Source Analysis
-        uses: snyk/actions/maven@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          JAVA_HOME: ${{ env.JAVA_HOME_24_X64 }}
-        with:
-          args: --severity-threshold=high
+      # --- PROJET 3 : INSTALLATION ET SCAN SNYK (Méthode CLI) ---
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      - name: Snyk Authenticate
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
+      - name: Snyk Open Source Analysis (Backend)
+        # On utilise le CLI directement pour éviter l'erreur JAVA_HOME
+        run: snyk test --severity-threshold=high
 
   docker-build-push:
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' # On ne push que lors d'un merge sur main
+    if: github.event_name == 'push'
     steps:
       - name: Checkout du code
         uses: actions/checkout@v4
@@ -47,15 +48,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # --- PROJET 4 : ANALYSE DE L'IMAGE DOCKER ---
-      # Analyse l'image avant le push pour éviter de déployer des failles système
+      # --- PROJET 4 : SCAN DU CONTENEUR ---
       - name: Snyk Container Scan
-        uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          image: ${{ secrets.DOCKERHUB_USERNAME }}/suivie-academique:latest
-          args: --severity-threshold=high
+        run: |
+          npm install -g snyk
+          snyk auth ${{ secrets.SNYK_TOKEN }}
+          snyk container test ${{ secrets.DOCKERHUB_USERNAME }}/suivie-academique:latest --severity-threshold=high
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
