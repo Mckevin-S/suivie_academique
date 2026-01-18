@@ -23,16 +23,16 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -DskipTests
 
-      # --- PROJET 3 : INSTALLATION ET SCAN SNYK (Méthode CLI) ---
+      # --- PROJET 3 : TEST DE SÉCURITÉ ---
       - name: Install Snyk CLI
         run: npm install -g snyk
 
-      - name: Snyk Authenticate
-        run: snyk auth ${{ secrets.SNYK_TOKEN }}
-
       - name: Snyk Open Source Analysis (Backend)
-        # On utilise le CLI directement pour éviter l'erreur JAVA_HOME
-        run: snyk test --severity-threshold=high
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        # --maven-aggregate-project aide Snyk à mieux comprendre la structure Maven
+        # On utilise 'mvn' au lieu du wrapper pour éviter l'erreur de chemin
+        run: snyk test --severity-threshold=high --command=mvn
 
   docker-build-push:
     needs: build-and-test
@@ -48,11 +48,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # --- PROJET 4 : SCAN DU CONTENEUR ---
+      # --- PROJET 4 : GESTION DES VULNÉRABILITÉS DOCKER ---
       - name: Snyk Container Scan
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
           npm install -g snyk
-          snyk auth ${{ secrets.SNYK_TOKEN }}
           snyk container test ${{ secrets.DOCKERHUB_USERNAME }}/suivie-academique:latest --severity-threshold=high
 
       - name: Build and push Docker image
