@@ -10,7 +10,8 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout du code
+        uses: actions/checkout@v4
 
       - name: Set up JDK 24
         uses: actions/setup-java@v4
@@ -22,22 +23,38 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -DskipTests
 
-      # Optionnel : décommentez si vous avez des tests unitaires
-      # - name: Run Tests
-      #   run: mvn test
+      # --- PROJET 3 & 5 : ANALYSE DE SÉCURITÉ DU CODE (SCA) ---
+      # Identifie les dépendances vulnérables dans Spring Boot
+      - name: Snyk Open Source Analysis
+        uses: snyk/actions/maven@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
 
   docker-build-push:
     needs: build-and-test
     runs-on: ubuntu-latest
     if: github.event_name == 'push' # On ne push que lors d'un merge sur main
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout du code
+        uses: actions/checkout@v4
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # --- PROJET 4 : ANALYSE DE L'IMAGE DOCKER ---
+      # Analyse l'image avant le push pour éviter de déployer des failles système
+      - name: Snyk Container Scan
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: ${{ secrets.DOCKERHUB_USERNAME }}/suivie-academique:latest
+          args: --severity-threshold=high
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
