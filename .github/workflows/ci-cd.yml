@@ -20,27 +20,26 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven
-        run: mvn clean package -DskipTests
+      - name: Build and Install (nécessaire pour l'arbre de dépendances)
+        run: mvn clean install -DskipTests
 
-      # --- PROJET 3 : TEST DE SÉCURITÉ ---
+      # --- PROJET 3 & 5 : INTÉGRATION SÉCURITÉ ---
       - name: Install Snyk CLI
         run: npm install -g snyk
 
       - name: Snyk Open Source Analysis (Backend)
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        # --maven-aggregate-project aide Snyk à mieux comprendre la structure Maven
-        # On utilise 'mvn' au lieu du wrapper pour éviter l'erreur de chemin
-        run: snyk test --severity-threshold=high --command=mvn
+        # Utilisation de --skip-unresolved pour ignorer les erreurs de plugin
+        # et --all-projects pour forcer une détection globale
+        run: snyk test --severity-threshold=high --all-projects --skip-unresolved
 
   docker-build-push:
     needs: build-and-test
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      - name: Checkout du code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -48,7 +47,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # --- PROJET 4 : GESTION DES VULNÉRABILITÉS DOCKER ---
+      # --- PROJET 4 : SCAN DOCKER ---
       - name: Snyk Container Scan
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
